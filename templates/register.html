@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'assets\css\bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Register</title>
+    <style>
+        body {
+
+            background-image: url('https://wallpapers.com/images/hd/medical-background-cjge7e89adg6ub8x.jpg');
+            background-repeat: no-repeat;
+            background-size: Cover;
+            height: 100vh;
+        }
+
+        label {
+            text-transform: uppercase;
+            font-size: larger;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mt-1">
+            
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-4 shadow mt-1 p-5 mx-auto border">
+                <h2 class="text-center mt-5 fw-bold" style="text-transform: uppercase;">Register</h2>
+                <hr class="mb-4 mt-0 d-inline-block" style="width: 70px; background-color: #011129; height: 2px; margin-inline-start: 130px;"/>
+                <br>
+
+                {% if errmsg %}
+                <div class="alert alert-danger bg-danger fw-bold text-light">
+                    {{errmsg}}
+                </div>
+                {% endif %}
+                <form action="/register" method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="input1" class="form-label fw-bold">Username:</label>
+                        <input type="text" name="uname" class="form-control" id="input1" placeholder="Enter First name Only">
+                    </div><br>
+                    <div class="mb-3">
+                        <label for="input2" class="form-label fw-bold">Email:</label>
+                        <input type="email" name="uemail" class="form-control" id="input2" placeholder="Enter email id">
+                    </div><br>
+                    <!------
+                    <div class="mb-3">
+                        <label for="input2" class="form-label fw-bold">Mobile No:</label>
+                        <input type="number" name="umob" class="form-control" id="input2">
+                    </div><br>--->
+                    <div class="mb-3">
+                        <label for="input3" class="form-label fw-bold">Password:</label>
+                        <input type="password" name="upass" class="form-control" id="input3">
+                    </div><br>
+                    <div class="mb-3">
+                        <label for="input4" class="form-label fw-bold">Confirm Password:</label>
+                        <input type="password" name="ucpass" class="form-control" id="input4">
+                    </div>
+                    <div class="mb-3" style="text-align: center;">
+                        <input type="submit" class="btn btn-dark  mt-5 w-45" style="font-size: x-large; background-color: #5040A0;"
+                            value="Register">
+                        <br><br>
+                        <b>Already have a Account? </b><a href="/login" style="text-decoration:none;">Login</a>
+                    </div>
+                    {% if success %}
+                    <div class="alert alert-success bg-success fw-bold text-light">
+                        {{success}}
+                    </div>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

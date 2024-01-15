@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block banner_slider %}
+
+{% block canvas %}
+
+<canvas></canvas>
+
+{% endblock canvas %}
+
+
+  <br>
+  <marquee width="100%" direction="left" height="100px"
+    style="font-size:xx-large; font-weight: 500; font-family: Sans Serif Fonts;">
+    <b>Healthy Today, Happy Tomorrow !!!</b>
+  </marquee>
+  <div class="container mt-0">
+    {% if success %}
+    <div class="alert alert-success">
+    <h4 class="text-center aria-label"><b>{{success}}</b></h4>
+    </div>
+     {% endif %}            
+    <!-- Carousel wrapper -->
+    <div id="carouselVideoExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+
+      <!-- Inner -->
+      <div class="carousel-inner">
+        <!-- Single item -->
+        <div class="carousel-item active">
+          <video class="img-fluid" autoplay loop muted>
+            <source src="{% static 'assets\images\vid2.mp4' %}" type="video/mp4" width= />
+          </video>
+        </div>
+
+
+      </div>
+      <!-- Inner -->
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-mdb-target="#carouselVideoExample" data-mdb-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-mdb-target="#carouselVideoExample" data-mdb-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div><br>
+    <!-- Carousel wrapper -->
+
+  </div>
+
+
+  {% endblock banner_slider %}
+
+  {% block main-content %}
+
+  <!-- ======= Featured Services Section ======= -->
+  <section id="featured-services" class="featured-services">
+    <div class="container" data-aos="fade-up" id="services">
+      <div class="section-title">
+        <h3 style="text-align: center;font-weight: bold; font-size: 30pt;">SERVICES</h3>
+        <hr class="mb-4 mt-0 d-inline-block" style="width: 90px; background-color: #011129; height: 2px; margin-inline-start: 600px;"/>
+        <br>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+          <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon" style="text-align: center;"><i class="fas fa-heartbeat"></i></div>
+            <h4 class="title" style="text-align: center;"><a href="">Diagnostic Services</a></h4>
+            <p class="description" style="text-align: center; font-family: Sans Serif">This includes medical imaging
+              (X-rays, CT scans, MRI), laboratory tests, and other diagnostic procedures to
+              help diagnose and monitor medical conditions.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+          <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon" style="text-align: center;"><i class="fas fa-pills"></i></div>
+            <h4 class="title" style="text-align: center;"><a href="">COVID-19</a></h4>
+            <p class="description" style="text-align: center;font-family: Sans Serif">We prioritize the safety of our
+              patients and staff. Visit our "COVID-19 Updates" page for the latest information on safety protocols,
+              visitor restrictions, and other relevant details.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+          <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon" style="text-align: center;"><i class="fas fa-thermometer"></i></div>
+            <h4 class="title" style="text-align: center;"><a href="">Routine check-ups</a></h4>
+            <p class="description" style="text-align: center;font-family: Sans Serif">If you have a primary care
+              physician, contact their office directly.
+              They can usually schedule routine check-ups and manage your overall healthcare.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+          <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
+            <div class="icon" style="text-align: center;"><i class="fas fa-dna"></i></div>
+            <h4 class="title" style="text-align: center;"><a href="">Surgical Services:</a></h4>
+            <p class="description" style="text-align: center;font-family: Sans Serif">Hospitals offer a range of
+              surgical procedures, from routine surgeries to complex operations.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><br><br>
+  <!-- End Featured Services Section -->
+
+
+{% endblock main-content %}

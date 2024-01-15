@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block main-content %}
+{% load static %}
+<!---Main Start---->
+  
+  {% if success %}
+  <div class="alert alert-success">
+    {{success}}
+  </div>
+  {% endif %}
+  {% if errmsg %}
+  <div class="alert alert-danger">
+    {{errmsg}}
+  </div>
+  {% endif %}
+</div>
+
+<div class="row mt-4 mx-auto p-5">
+    {% for x in products %}
+    <div class="col-md-4">
+        <img src="{{x.pimage.url}}" height="200px" class="card-img-top" alt="...">
+    </div>
+    <div class="col-md-8 mx-auto">
+        <p style="font-family: Times New Roman;font-size: xx-large;text-align: left; margin-right: 250;">
+        </p>
+        <p><b>Product Name:</b>&nbsp;&nbsp;{{x.name}}</p>
+        <p><b>Price:</b>&nbsp;&nbsp;RS: {{x.price}}</p>
+        {% if x.cat == 1 %}
+        <p class="card-text">Medicines</p>
+        {% elif x.cat == 2 %}
+        <p class="card-text">Personalcare</p>
+        {% elif x.cat == 3 %}
+        <p class="card-text">Unicare</p>
+        {% else %}
+        <p class="card-text">COVID-19</p>
+        {% endif %}                   
+        <p><b>Product Description:</b>&nbsp;&nbsp;{{x.pdetails}}</p>            
+        <br>
+        <a href="/addtocart/{{x.id}}" class="btn text-white" style="background-color: #5040A0;">Add to cart</a>&nbsp;&nbsp;&nbsp;
+        <a href="/viewcart" class="btn text-white" style="background-color: #5040A0;">View cart</a>
+    </div>
+    {% endfor %}
+</div>
+
+<!----Main End---->
+
+
+
+{% endblock main-content %}
+

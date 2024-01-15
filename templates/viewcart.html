@@ -1,0 +1,58 @@
+{% extends 'base.html' %}  <!--because we need header and footer-->
+
+{% block main-content %}        <!-- for Main section-->
+{% load static %}
+<!---Cart starts-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mt-5">
+            <h4 class="text-white p-2" style="background-color: #5040A0;">Cart Item</h4><br>
+            {% for x in data %}
+            <div class="row">
+                <div class="col-md-4">
+                  <img src="{{x.pid.pimage.url}}" width="100%" height="250">
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="col-md-7">
+                    <p><b>Product Name:</b>&nbsp;&nbsp;{{x.pid.name}}</p>
+                    {% if x.pid.cat == 1 %}
+                    <p class="card-text">Medicines</p>
+                    {% elif x.pid.cat == 2 %}
+                    <p class="card-text">Personalcare</p>
+                    {% elif x.pid.cat == 3 %}
+                    <p class="card-text">Unicare</p>
+                    {% else %}
+                    <p class="card-text">COVID-19</p>
+                    {% endif %}    
+                    <p><b>Price:</b>&nbsp;&nbsp;{{x.pid.price}}</p>
+                    <div class="btn-group">
+                        <a href="/updateqty/0/{{x.id}}"><button class="btn btn-outline-primary" 
+                                style="border-radius: 0%;">-</button></a>
+                        <button class="btn text-light" style="background-color: #5040A0;">{{x.qty}}</button>
+                        <a href="/updateqty/1/{{x.id}}"><button class="btn btn-outline-primary" 
+                                style="border-radius: 0%;">+</button></a>&nbsp;&nbsp;
+                    </div>
+                    <a href="/remove/{{x.id}}"><button class="btn text-light" style="background-color: #5040A0;">Remove</button></a>
+                </div>
+           </div><br><br>
+           {% endfor %}
+        </div>
+        <div class="col-md-4 mt-5">
+            {% for x in data %}
+            {% if forloop.counter == 1 %}
+            <h4 class="text-white p-2" style="background-color: #5040A0;">Customer Details</h4><br>
+            <p><b>Name:</b>&nbsp;&nbsp;&nbsp;{{x.uid.username}}</p> 
+            <p><b>Email ID:</b>&nbsp;&nbsp;&nbsp;{{x.uid.email}}</p><br>
+            {% endif %}
+            {% endfor %}
+
+            <h4 class="text-white p-2" style="background-color: #5040A0;">Total Amount</h4><br>
+            <p><b>Total {{items}}: </b>Rs. {{total}}</p> 
+            <hr>
+            <p><b>Total Amount: </b>Rs. {{total}}</p>
+            <a href="/placeorder"><button class="btn text-white" style="background-color: #5040A0;">Place Order</button></a>
+        </div>
+    </div>
+</div><br>
+<!---Cart Ends-->
+
+{% endblock main-content %}

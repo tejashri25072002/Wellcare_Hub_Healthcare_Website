@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block main-content %}
+
+
+<div style="background-image: url('https://wallpapers.com/images/hd/medical-background-cjge7e89adg6ub8x.jpg');
+            background-repeat: no-repeat; background-size: cover; height: 120vh; display: flex; align-items: center;">
+    <div class="container"><br>
+        <h2 class="fw-bold text-center" style="text-transform: uppercase; font-size: 30pt;">Feedback</h2><br>
+        <div class="mb-4 large text-center">
+            <b style="font-size: 15pt;">Please provide your feedback in the form below</b>
+        </div>
+        {% if errmsg %}
+        <div class="alert text-light" style="background-color: #5040A0;">
+            {{errmsg}}
+        </div>
+        {% endif %}
+        <form action="/feedback" name="feedback_form" id="feedback_form" method="post" style="font-size: 15pt; width: 500px; margin: 0 auto;">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col">
+                    <label class="form-label fw-bold" for="feedback_name">Your Name:</label>
+                    <input type="text" required name="uname" class="form-control" id="feedback_name" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="form-label fw-bold" for="feedback_email">Email:</label>
+                    <input type="email" name="uemail" required class="form-control" id="feedback_email" />
+                </div>
+            </div>
+            <div class="mb-4">
+                <label class="form-label fw-bold" for="feedback_comments">Comments:</label>
+                <textarea class="form-control" required rows="5" name="ucmts" id="feedback_comments"></textarea>
+            </div>
+
+            <label class="fw-bold">How do you rate your overall experience?</label>
+            <div class="mb-3 d-flex flex-row py-1">
+                <!-- ... (unchanged) ... -->
+            </div>
+            <div class="mb-3 d-flex flex-row py-1">
+                <div class="form-check mr-3">
+                    <input class="form-check-input" type="radio" name="rating"
+                        id="rating_bad" value="bad">
+                    <label class="form-check-label" for="rating_bad">
+                        Bad
+                    </label>
+                </div>
+
+                <div class="form-check mx-3">
+                    <input class="form-check-input" type="radio" name="rating"
+                        id="rating_good" value="good">
+                    <label class="form-check-label" for="rating_good">
+                        Good
+                    </label>
+                </div>
+
+                <div class="form-check mx-3">
+                    <input class="form-check-input" type="radio" name="rating"
+                        id="rating_excellent" value="excellent">
+                    <label class="form-check-label" for="rating_excellent">
+                        Excellent!
+                    </label>
+                </div>
+            </div>
+
+            <div class="mb-3" style="text-align: center;">
+                <input type="submit" class="btn btn-dark mt-2 w-50" style="font-size: large;" value="POST">
+            </div><br>
+            {% if success %}
+            <div class="alert text-light" style="background-color: #5040A0;">
+                {{success}}
+            </div>
+            {% endif %}
+        </form>
+
+    </div>
+</div><br>
+
+{% endblock main-content %}

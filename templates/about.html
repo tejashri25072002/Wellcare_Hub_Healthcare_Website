@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+
+{% block main-content %}
+
+{% load static %}
+
+{% block canvas %}
+
+<canvas></canvas>
+
+{% endblock canvas %}
+
+<br>
+<div style="text-align: center;">
+    <div class="container">
+        <h3>ABOUT US</h3>
+        <hr class="mb-4 mt-0 d-inline-block" style="width: 90px; background-color: #011129; height: 2px; margin-inline-start: 1px;"/>
+
+        <p style="font-size: large; text-align: center;font-family: 'Open Sans', sans-serif;"><b>Welcome to WellCare Hub
+                -
+                Your Partner in Health</b></p>
+        <hr>
+        <p style="font-family: Sans Serif Fonts;font-size:large; font-weight:lighter;">Welcome to WellCare Hub, where
+            healthcare meets compassion. Established in 2003, we've been steadfast in delivering exceptional medical
+            care to Mumbai and its surrounding communities. At WellCare Hub, our mission is clear: to provide
+            personalized healthcare that enhances the well-being of every patient. Guided by values of compassion,
+            excellence, and community,
+            we prioritize patient-centric care and invest in state-of-the-art facilities and technologies. Our
+            experienced team of healthcare professionals is
+            dedicated to ensuring the highest standards of medical excellence. Beyond treating illnesses, we emphasize
+            preventive care, health education,
+            and holistic wellness. Choose WellCare Hub for expert care, cutting-edge facilities, and a commitment to
+            your health.
+            Thank you for considering us as your trusted healthcare partner.</p> <br>
+
+
+        <h3>WHY CHOOSE US?</h3>
+        <hr class="mb-4 mt-0 d-inline-block" style="width: 90px; background-color: #011129; height: 2px; margin-inline-start: 1px;"/>
+
+
+        <p style="font-family: Sans Serif Fonts;font-size:large; font-weight:lighter;">1. <b
+                style="font-family: 'Open Sans', sans-serif;">Patient-Centric Approach:</b><br> Your health is our
+            priority.
+            We believe in treating each patient with the utmost respect, empathy, and individualized attention.</p><br>
+
+        <p style="font-family: Sans Serif Fonts;font-size:large; font-weight:lighter;">1. <b
+                style="font-family: 'Open Sans', sans-serif;">Expert Care Team:</b><br> Our team of experienced
+            physicians, nurses, and support staff is dedicated to delivering the highest standard of care. We
+            continuously invest in training and education to stay at the forefront of medical advancements.
+        </p><br>
+
+
+        <p style="font-family: Sans Serif Fonts;font-size:large; font-weight:lighter;">1. <b
+                style="font-family: 'Open Sans', sans-serif;">Innovation in Healthcare:</b><br>WellCare Hub embraces the
+            latest medical technologies and practices to ensure accurate diagnostics, effective treatments, and optimal
+            patient outcomes.
+        </p><br>
+
+
+<!---Doctors Section start---->
+
+<hr>
+<div>
+    <h3 style="text-align: center;">OUR TEAM</h3>
+    <hr class="mb-4 mt-0 d-inline-block" style="width: 90px; background-color: #011129; height: 2px; margin-inline-start: 1px;"/>
+</div><br>
+<div class="container">
+    
+   
+    <div class="row mt-4">
+        <!--Card 1-->
+        <div class="col-3">
+            <div class="card border-0" style="width: 100%;">
+                {% for x in depart %}
+                {% if x.doctor == "doctor1" %}
+                <img src="{% static 'assets\images\doctors-1.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Jhon Jackson</h5>
+                    <p class="card-text">Cardiologist</p>
+                    <a href="/docappoint/{{x.doctor}}" class="btn text-white"style="background-color: #5040A0;">Make Appointment</a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div> 
+        <!--Card-2-->
+        <div class="col-3">
+            <div class="card border-0" style="width: 100%;">
+                {% for x in depart %}
+                {% if x.doctor == "doctor2" %}
+                <img src="{% static 'assets\images\doctors-2.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Amy Jacob</h5>
+                    <p class="card-text">Cardiologist</p>
+                    <a href="/docappoint/{{x.doctor}}" class="btn text-white"style="background-color: #5040A0;">Make Appointment</a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        
+        <!--Card-3-->       
+        <div class="col-3">
+            <div class="card border-0" style="width: 100%;">
+                {% for x in depart %}
+                {% if x.doctor == "doctor3" %}
+                <img src="{% static 'assets\images\doctors-3.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Jing Who</h5>
+                    <p class="card-text">Neurologist</p>
+                    <a href="/docappoint/{{x.doctor}}" class="btn text-white"style="background-color: #5040A0;">Make Appointment</a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        
+       
+        <!--card 4-->
+        <div class="col-3">
+            <div class="card border-0" style="width: 100%;">
+                {% for x in depart %}
+                {% if x.doctor == "doctor4" %}
+                <img src="{% static 'assets\images\doctors-4.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Jane Anderson</h5>
+                    <p class="card-text">Neurologist</p>
+                    <a href="/docappoint/{{x.doctor}}" class="btn text-white"style="background-color: #5040A0;">Make Appointment</a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-3">
+                <div class="card border-0">
+                    {% for x in depart %}
+                    {% if x.doctor == "doctor5" %}
+                    <img src="{% static 'assets\images\doctors-5.jpeg' %}" height="300px" width="300px"  class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Ricky Nathan</h5>
+                        <p class="card-text">Hepatologist</p>
+                        <a href="/docappoint/{{x.doctor}}" class="btn text-white"style="background-color: #5040A0;">Make Appointment</a>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            
+        
+            <div class="col-3">
+                <div class="card border-0">
+                    {% for x in depart %}
+                    {% if x.doctor == "doctor6" %}
+                    <img src="{% static 'assets\images\doctors-8.jpeg' %}" height="300px" width="300px" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Nelson John</h5>
+                        <p class="card-text">Hepatologist</p>
+                        <a href="/docappoint/{{x.doctor}}" class="btn text-white"style="background-color: #5040A0;">Make Appointment</a>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="col-3">
+                <div class="card border-0">
+                    {% for x in depart %}
+                    {% if x.doctor == "doctor7" %}
+                    <img src="{% static 'assets\images\doctors-6.jpeg' %}" height="300px" width="300px" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Patrick Shiong</h5>
+                        <p class="card-text">General Physician</p>
+                        <a href="/docappoint/{{x.doctor}}" class="btn text-white"style="background-color: #5040A0;">Make Appointment</a>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+           
+
+            <div class="col-3">
+                <div class="card border-0" style="width: 100%;">
+                    {% for x in depart %}
+                    {% if x.doctor == "doctor8" %}
+                    <img src="{% static 'assets\images\doctors-7.jpeg' %}" height="300px"  class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Solange Falade</h5>
+                        <p class="card-text">General Physician</p>
+                        <a href="/docappoint/{{x.doctor}}" class="btn text-white"style="background-color: #5040A0;">Make Appointment</a>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+</div>
+</div>
+
+
+<!---Doctors Section start---->
+
+
+{% endblock main-content %}

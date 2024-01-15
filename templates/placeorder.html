@@ -1,0 +1,44 @@
+{% extends 'base.html' %}  <!--because we need header and footer-->
+
+{% block main-content %}        <!-- for Main section-->
+{% load static %}
+<!---Cart starts-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mt-5">
+            <h4 class="text-white p-2" style="background-color: #5040A0;">Cart Item</h4><br>
+            {% for x in data %}
+            <div class="row">
+                <div class="col-md-4">
+                  <img src="{{x.pid.pimage.url}}" width="100%" height="250">
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="col-md-7">
+                    <p><b>Product Name:</b>&nbsp;&nbsp;{{x.pid.name}}</p>
+                    {% if x.pid.cat == 1 %}
+                    <p class="card-text">Medicines</p>
+                    {% elif x.pid.cat == 2 %}
+                    <p class="card-text">Personalcare</p>
+                    {% elif x.pid.cat == 3 %}
+                    <p class="card-text">Unicare</p>
+                    {% else %}
+                    <p class="card-text">COVID-19</p>
+                    {% endif %}    
+                    <p><b>Price:</b>&nbsp;&nbsp;{{x.pid.price}}</p>
+                    <p><b>Qty:</b>&nbsp;&nbsp;{{x.qty}}</p>
+                </div>
+           </div><br><br>
+           {% endfor %}
+        </div>
+        <div class="col-md-4 mt-5">
+
+            <h4 class="text-white p-2" style="background-color: #5040A0;">Total Amount</h4><br>
+            <p><b>Total {{items}}: </b>Rs. {{total}}</p> 
+            <hr>
+            <p><b>Total Amount: </b>Rs. {{total}}</p>
+            <a href="/makepayment/2"><button class="btn text-white" style="background-color: #5040A0;">Make Payment</button></a>
+        </div>
+    </div>
+</div><br>
+<!---Cart Ends-->
+
+{% endblock main-content %}

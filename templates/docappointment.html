@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block main-content %}
+
+{% load static %}
+
+<!-- ======= Appointment Section ======= -->
+<section id="appointment" class="appointment section-bg">
+  <div class="container" data-aos="fade-up">
+    <div class="row mt-2 p-2">
+      <marquee width="100%" direction="left" height="30px"
+              style="font-size:x-large; font-weight: bold; font-family: Sans Serif Fonts;">
+              <b>For appointment/ambulance you can contact us on <i class="bi bi-telephone"
+                  style="color:#5040A0 ;"></i><b>
+                  +91 9765876546 </b>&nbsp; and &nbsp;<i class="bi bi-envelope-at"
+                  style="color:#5040A0 ;"></i>&nbsp;<b>wellcare@gmail.com </b></b>
+            </marquee>
+      <div class="col mt-3">
+        <div class="section-title" style="text-align: center;">
+          <br>
+          <h2>MAKE AN APPOINTMENT</h2>
+          <hr class="mb-4 mt-0 d-inline-block"
+            style="width: 150px; background-color: #011129; height: 2px; margin-inline-start: 0px;" /><br>
+          <img src="{% static 'assets/images/appoint.jpeg' %}" height="300px" width="500px" alt="image"/>
+        </div><br>
+      </div>
+      <div class="col mt-3">
+        <div class="col-md-8 shadow mt-1 p-5 mx-auto border">
+          <form action="/makeappointment" method="post" role="form" class="php-email-form" data-aos="fade-up"
+            data-aos-delay="100">
+            {% csrf_token %}
+            <div class="row mt-2 form-group">
+              <input type="text" name="name" class="form-control" id="name" value="{{user.first_name}}"  placeholder="Your Name" required>
+            </div>
+            <div class="row mt-2 form-group">
+              <input type="email" class="form-control" name="email" id="email" value="{{user.username}}"
+                placeholder="Your Email" required>
+            </div>
+            <div class="row mt-2 form-group">
+              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" required>
+            </div>
+            <div class="row mt-2 form-group">
+              <input type="date" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date"
+                required>
+            </div>
+            <div class="row mt-2 form-group">
+              <select name="department" id="department" class="form-select">
+                {% for x in dept %}
+                {% if forloop.counter == 1 %}
+                {% if x.department == 'dept1' %}
+                <option value="dept1">Cardiology</option>
+                {% elif x.department == 'dept2' %}
+                <option value="dept2">Neurology</option>
+                {% elif x.department == 'dept3' %}
+                <option value="dept3">Hepatology</option>
+                {% else %}
+                <option value="dept4">General Physician</option>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+            <div class="row mt-2 form-group">
+              <select name="doctor" id="doctor" class="form-select">
+                {% for x in dept %}
+                {% if forloop.counter == 1 %}
+                {% if x.doctor == 'doctor1' %}
+                <option value="doctor1" >Jhon Jackson</option>
+                {% elif x.doctor == 'doctor2' %}
+                <option value="doctor2">Amy Jacob</option>
+                {% elif x.doctor == 'doctor3' %}
+                <option value="doctor3">Jing Who</option>
+                {% elif x.doctor == 'doctor4' %}
+                <option value="doctor4">Jane Anderson</option>
+                {% elif x.doctor == 'doctor5' %}
+                <option value="doctor5">Ricky Nathan</option>
+                {% elif x.doctor == 'doctor6' %}
+                <option value="doctor6">Nelson John</option>
+                {% elif x.doctor == 'doctor7' %}
+                <option value="doctor7">Patrick Shiong</option>
+                {% else %}
+                <option value="doctor8">Solange Falade</option>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+
+
+            <div class="row mt-2 form-group">
+              <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
+            </div><br><br>
+            <div class="row mt-2 text-center">
+              <button class="btn w-30 text-white" type="submit"
+                  style="font-size: large; background-color: #5040A0;">Make
+                  an Appointment</button>
+            </div>
+            <br>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section><br><br>
+
+<!-- End Appointment Section -->
+
+{% endblock main-content %}

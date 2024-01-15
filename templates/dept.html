@@ -1,0 +1,395 @@
+{% extends 'base.html' %}
+
+{% block main-content %}
+{% load static %}
+
+<!--Main Start-->
+<!-- ======= Departments Section ======= -->
+<br>
+<section id="departments" class="departments">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h3>DEPARTMENTS</h3>
+            <p style="font-family: Sans Serif">Precision Care in Every
+                Department: Our Hospital's Commitment to Excellence Ensures
+                Specialized Expertise
+                Across Various Medical Fields,
+                Providing Comprehensive and Compassionate Healthcare for Every
+                Patient's Unique Needs.</p>
+        </div><br>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <ul class="nav nav-tabs flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active show" data-bs-toggle="tab"
+                            data-bs-target="#tab-1">
+                            <h4>Cardiology</h4>
+                            <p style="font-family: Sans Serif">Precision Care
+                                for Your Heart: Expert Cardiologists
+                                Specializing in Cardiovascular Health</p>
+                        </a>
+                    </li>
+                    <li class="nav-item mt-2">
+                        <a class="nav-link" data-bs-toggle="tab"
+                            data-bs-target="#tab-2">
+                            <h4>Neurology</h4>
+                            <p style="font-family: Sans Serif">Navigating Brain
+                                and Nervous System Health: Specialized
+                                Expertise with Our Neurologists</p>
+                        </a>
+                    </li>
+                    <li class="nav-item mt-2">
+                        <a class="nav-link" data-bs-toggle="tab"
+                            data-bs-target="#tab-3">
+                            <h4>Hepatology</h4>
+                            <p style="font-family: Sans Serif">Pioneering Liver
+                                Health: Expert Hepatologists Dedicated
+                                to Your Well-being</p>
+                        </a>
+                    </li>
+                    <li class="nav-item mt-2">
+                        <a class="nav-link" data-bs-toggle="tab"
+                            data-bs-target="#tab-4">
+                            <h4>General Physician</h4>
+                            <p style="font-family: Sans Serif">Your Health
+                                Advocate: General Physicians Dedicated to
+                                Comprehensive Care and Well-being.</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-8">
+                <div class="tab-content">
+                    <div class="tab-pane active show" id="tab-1">
+                        <h3>Cardiology</h3>
+                        <p class="fst-italic"
+                            style="font-family: Sans Serif">Healing Hearts,
+                            Ensuring Lifelong
+                            Well-being.</p>
+                        <img
+                            src="{% static 'assets/images/departments-1.jpg' %}"
+                            alt class="img-fluid"
+                            style="height: 250px; width: 250px;">
+                        <p style="font-family: Sans Serif">Cardiologists are
+                            highly specialized medical professionals
+                            focusing on the intricate world of heart health.
+                            These experts play a
+                            pivotal role in diagnosing, treating, and preventing
+                            cardiovascular diseases. Armed with
+                            extensive knowledge of the heart and
+                            circulatory system, cardiologists employ advanced
+                            diagnostic tools and cutting-edge
+                            treatments to address conditions such as heart
+                            attacks, arrhythmias,
+                            and heart failure. Beyond intervention, they
+                            emphasize preventive care, guiding patients in
+                            adopting heart-healthy lifestyles. With a deep
+                            commitment to cardiac wellness,
+                            cardiologists work tirelessly to ensure the
+                            longevity and vitality of their patients'
+                            hearts, fostering a healthier future for
+                            individuals seeking comprehensive cardiovascular
+                            care.</p><br>
+                        <!-- <a href="/doctor/dept1" class="btn text-white"
+                            style="background-color: #5040A0;">Select Your
+                            Doctor</a> -->
+                            <h5>Our Team</h5>
+                            <br>
+                        <div class="row mt-4">
+                            <!--Card 1-->
+                            <div class="col-4">
+                                <div class="card border-0" style="width: 100%;">
+                                    {% for x in depart %}
+                                    {% if x.doctor == "doctor1" %}
+                                    <img
+                                        src="{% static 'assets\images\doctors-1.jpg' %}"
+                                        class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Jhon Jackson</h5>
+                                        <p class="card-text">Cardiologist</p>
+                                        <a href="/docappoint/{{x.doctor}}"
+                                            class="btn text-white"
+                                            style="background-color: #5040A0;">Make
+                                            Appointment</a>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <!--Card-2-->
+                            <div class="col-4">
+                                <div class="card border-0" style="width: 100%;">
+                                    {% for x in depart %}
+                                    {% if x.doctor == "doctor2" %}
+                                    <img
+                                        src="{% static 'assets\images\doctors-2.jpg' %}"
+                                        class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Amy Jacob</h5>
+                                        <p class="card-text">Cardiologist</p>
+                                        <a href="/docappoint/{{x.doctor}}"
+                                            class="btn text-white"
+                                            style="background-color: #5040A0;">Make
+                                            Appointment</a>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab-2">
+                        <h3>Neurology</h3>
+                        <p class="fst-italic"
+                            style="font-family: Sans Serif">Unraveling the
+                            Complexities of the Nervous
+                            System for Optimal Brain Health.</p>
+                        <img
+                            src="{% static 'assets/images/departments-2.jpg' %}"
+                            alt="#" class="img-fluid"
+                            style="height: 250px; width: 250px;">
+                        <p style="font-family: Sans Serif">Neurologists are
+                            specialized physicians dedicated to
+                            understanding and treating disorders of
+                            the nervous system. This encompasses the brain,
+                            spinal cord, and peripheral nerves. Armed
+                            with
+                            extensive knowledge of neurological conditions,
+                            neurologists diagnose and manage disorders
+                            such as epilepsy,
+                            strokes, multiple sclerosis, and headaches. Through
+                            advanced imaging technologies and
+                            specialized testing, they unravel the
+                            complexities of neurological issues, developing
+                            tailored treatment plans. Beyond medical
+                            intervention, neurologists often collaborate
+                            with multidisciplinary teams to provide holistic
+                            care. Their expertise extends to
+                            researching and advancing neurological sciences,
+                            contributing to
+                            breakthroughs that enhance the understanding and
+                            treatment of a diverse range of
+                            neurological disorders.</p><br>
+                        <!-- <a href="#" class="btn text-white"
+                            style="background-color: #5040A0;">Select Your
+                            Doctor</a> -->
+                        <h5>Our Team</h5>
+                        <br>
+                        <div class="row mt-4">
+                            <!--Card 1-->
+                            <div class="col-4">
+                                <div class="card border-0" style="width: 100%;">
+                                    {% for x in depart %}
+                                    {% if x.doctor == "doctor3" %}
+                                    <img
+                                        src="{% static 'assets\images\doctors-3.jpg' %}"
+                                        class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Jing Who</h5>
+                                        <p class="card-text">Neurology</p>
+                                        <a href="/docappoint/{{x.doctor}}"
+                                            class="btn text-white"
+                                            style="background-color: #5040A0;">Make
+                                            Appointment</a>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <!--Card-2-->
+                            <div class="col-4">
+                                <div class="card border-0" style="width: 100%;">
+                                    {% for x in depart %}
+                                    {% if x.doctor == "doctor4" %}
+                                    <img
+                                        src="{% static 'assets\images\doctors-4.jpg' %}"
+                                        class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Jane Anderson</h5>
+                                        <p class="card-text">Neurology</p>
+                                        <a href="/docappoint/{{x.doctor}}"
+                                            class="btn text-white"
+                                            style="background-color: #5040A0;">Make
+                                            Appointment</a>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab-3">
+                        <h3>Hepatology</h3>
+                        <p class="fst-italic"
+                            style="font-family: Sans Serif">Navigating Liver
+                            Health for a Vital
+                            Tomorrow.</p>
+                        <img
+                            src="{% static 'assets/images/department-3.jpg' %}"
+                            alt class="img-fluid"
+                            style="height: 250px; width: 250px;">
+                        <p style="font-family: Sans Serif">Hepatologists are
+                            medical specialists focused on the
+                            intricate realm of liver health.
+                            With extensive expertise in liver diseases and
+                            disorders, these professionals diagnose and
+                            manage conditions
+                            such as hepatitis, cirrhosis, and liver cancer.
+                            Utilizing advanced diagnostic tools and
+                            therapies, hepatologists work to restore and
+                            maintain
+                            optimal liver function. They play a crucial role
+                            in
+                            liver transplantation evaluations and
+                            post-transplant care. Beyond treatment,
+                            hepatologists are dedicated to
+                            preventive measures, educating patients on
+                            lifestyle
+                            choices that promote liver well-being.
+                            Their commitment to advancing hepatology
+                            contributes
+                            to ongoing research, ensuring
+                            cutting-edge insights and innovative approaches
+                            in
+                            the field of liver health.</p><br><br>
+                        <!-- <a href="/doctor/dept3" class="btn text-white"
+                            style="background-color: #5040A0;">Select Your
+                            Doctor</a> -->
+                            <h5>Our Team</h5>
+                            <br>
+                        <div class="row mt-4">
+                            <!--Card 1-->
+                            <div class="col-4">
+                                <div class="card border-0">
+                                    {% for x in depart %}
+                                    {% if x.doctor == "doctor5" %}
+                                    <img
+                                        src="{% static 'assets\images\doctors-5.jpeg' %}" height="300px" width="200px"
+                                        class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Ricky Nathan</h5>
+                                        <p class="card-text">Hepatology</p>
+                                        <a href="/docappoint/{{x.doctor}}"
+                                            class="btn text-white"
+                                            style="background-color: #5040A0;">Make
+                                            Appointment</a>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <!--Card-2-->
+                            <div class="col-4">
+                                <div class="card border-0">
+                                    {% for x in depart %}
+                                    {% if x.doctor == "doctor6" %}
+                                    <img
+                                        src="{% static 'assets\images\doctors-8.jpeg' %}" height="300px" width="200px"
+                                        class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Nelson John</h5>
+                                        <p class="card-text">Hepatology</p>
+                                        <a href="/docappoint/{{x.doctor}}"
+                                            class="btn text-white"
+                                            style="background-color: #5040A0;">Make
+                                            Appointment</a>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab-4">
+                        <h3>General Physician</h3>
+                        <p class="fst-italic"
+                            style="font-family: Sans Serif">our Health
+                            Allies,
+                            Providing Comprehensive
+                            Care for All Ages.</p>
+                        <img
+                            src="{% static 'assets/images/Department-5.jpg' %}" 
+                            alt class="img-fluid"
+                            style="height: 250px; width: 250px;">
+                        <p style="font-family: Sans Serif">General
+                            physicians,
+                            often referred to as primary care
+                            doctors, serve as the cornerstone of healthcare,
+                            offering comprehensive medical care across
+                            various
+                            specialties. These professionals focus on
+                            preventive care,
+                            routine check-ups, and the management of common
+                            illnesses. With a broad understanding of the
+                            human body, general physicians diagnose
+                            and treat a wide range of medical conditions,
+                            coordinating specialized care when needed.
+                            Their expertise extends to health promotion and
+                            disease prevention,
+                            making them essential partners in patients'
+                            overall
+                            well-being. By fostering long-term
+                            relationships with individuals and families,
+                            general
+                            physicians
+                            contribute significantly to the foundation of
+                            accessible, holistic healthcare.</p><br>
+                        <!-- <a href="/doctor/dept4" class="btn text-white"
+                            style="background-color: #5040A0;">Select Your
+                            Doctor</a> -->
+                            <h5>Our Team</h5>
+                            <br>
+                        <div class="row mt-4">
+                            <!--Card 1-->
+                            <div class="col-4">
+                                <div class="card border-0">
+                                    {% for x in depart %}
+                                    {% if x.doctor == "doctor7" %}
+                                    <img
+                                        src="{% static 'assets\images\doctors-6.jpeg' %}" height="300px" width="200px"
+                                        class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Patrick Shiong</h5>
+                                        <p class="card-text">General Physician</p>
+                                        <a href="/docappoint/{{x.doctor}}"
+                                            class="btn text-white"
+                                            style="background-color: #5040A0;">Make
+                                            Appointment</a>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <!--Card-2-->
+                            <div class="col-4">
+                                <div class="card border-0">
+                                    {% for x in depart %}
+                                    {% if x.doctor == "doctor8" %}
+                                    <img
+                                        src="{% static 'assets\images\doctors-7.jpeg' %}" height="300px" width="200px"
+                                        class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Solange Falade</h5>
+                                        <p class="card-text">General Physician</p>
+                                        <a href="/docappoint/{{x.doctor}}"
+                                            class="btn text-white"
+                                            style="background-color: #5040A0;">Make
+                                            Appointment</a>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- End Departments Section -->
+
+    {% endblock main-content %}

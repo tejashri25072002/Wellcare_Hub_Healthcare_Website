@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block main-content %}
+    
+{% load static %}
+<div class="container mt-3 p-5">
+    {% if success %}
+        <div class="alert alert-success bg-success fw-bold text-light">
+            {{success}}
+        </div>
+        {% endif %}
+    <div class="row">
+        <div class="col-8 ml-5">
+            <h3 class="text ml-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Appointment Details</h3>
+            <hr class="mb-8 mt-0 d-inline-block"
+                style="width: 300px; background-color: #011129; height: 2px; margin-inline-start: 20px;" /><br>
+            {% for x in details %}
+            <div class="row">
+                <div class="col-3">
+                    <p><b>Name</b></p>
+                    <p><b>email</b></p>
+                    <p><b>Phone Number</b></p>
+                    <p><b>Doctor</b></p>
+                    <p><b>Appointment on</b></p>
+                </div>
+                <div class="col-1">
+                    <p>:</p>
+                    <p>:</p>
+                    <p>:</p>
+                    <p>:</p>
+                    <p>:</p>
+                </div>
+                <div class="col-4">
+                    <p>{{x.name}}</p>
+                    <p>{{x.email}}</p>
+                    <p>{{x.phone}}</p>
+                    {% if x.doctor == 'doctor1' %}
+                    <p>Jhon Jackson - Cardiology</p>
+                    {% elif x.doctor == 'doctor2' %}
+                    <p>Amy Jacob - Cardiology</p>
+                    {% elif x.doctor == 'doctor3' %}
+                    <p>Jing Who - Neurology</p>
+                    {% elif x.doctor == 'doctor4' %}
+                    <p>Jane Anderson - Neurology</p>
+                    {% elif x.doctor == 'doctor5' %}
+                    <p>Ricky Nathan - Hepatology</p>
+                    {% elif x.doctor == 'doctor6' %}
+                    <p>Nelson John - Hepatology</p>
+                    {% elif x.doctor == 'doctor7' %}
+                    <p>Patrick Shiong - General Physician</p>
+                    {% else %}
+                    <p>Solange Falade - General Physician</p>
+                    {% endif %}
+                    <p>{{x.date}}</p>
+
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-4 mt-2 p-3">
+            <p><button id="rzp-button1" class="btn text-white" style="background-color: #5040A0;">Pay With Razopay</button></p>
+        </div>
+    </div>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        var options = {
+            "key": "rzp_test_fXunVNnb2g7neE", // Enter the Key ID generated from the Dashboard
+            "amount": "{{data.amount}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "The HealthCare Pvt Limited",
+            "description": "Test Transaction",
+            "image": "https://example.com/your_logo",
+            "order_id": "{{details.pid}}", //This is a sample Order ID. Pass the id obtained in the response of Step 1
+            "handler": function (response) {
+                //alert(response.razorpay_payment_id);
+                //alert(response.razorpay_order_id);
+                //alert(response.razorpay_signature)
+                window.location.href = "http://localhost:8000/sendusermail/1"
+                //window.location.href = "http://localhost:8000/feedback/1"
+            },
+            "prefill": {
+                "name": "Gaurav Kumar",
+                "email": "gaurav.kumar@example.com",
+                "contact": "9000090000"
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.on('payment.failed', function (response) {
+            alert(response.error.code);
+            alert(response.error.description);
+            alert(response.error.source);
+            alert(response.error.step);
+            alert(response.error.reason);
+            alert(response.error.metadata.order_id);
+            alert(response.error.metadata.payment_id);
+        });
+        document.getElementById('rzp-button1').onclick = function (e) {
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+
+</div>
+
+
+{% endblock main-content %}
